@@ -32,45 +32,11 @@ namespace GoL
             InitializeComponent();
             InitializeBackgroundWorker();
             b.InitializeOpenCL();
-           // InitializeOpenCL();
+           
             Console.WriteLine("Form1 Started");
             backgroundWorker1.WorkerReportsProgress = true;
             backgroundWorker1.WorkerSupportsCancellation = true;
-            //dataGridView1.ColumnHeadersVisible = false;
-            //dataGridView1.RowHeadersVisible = false;
-            //dataGridView1.ColumnCount = w;
-            //dataGridView1.RowCount = h;
-
-            //dataGridView1.AllowUserToResizeColumns = false;
-            //dataGridView1.AllowUserToAddRows = false;
-           // dataGridView1.AllowUserToDeleteRows = false;
-            //dataGridView1.AllowUserToResizeRows = false;
-           // dataGridView1.AllowUserToOrderColumns = false;
-           // dataGridView1.BackgroundColor = Color.Black;
-           // dataGridView1.GridColor = Color.FromArgb(5, 5, 5);
-            
-/*
-            //Parallel.ForEach(dataGridView1.Columns, (c) =>  
-            for (int i = 0; i < dataGridView1.Columns.Count; i++)
-            {
-                dataGridView1.Columns[i].Width = 5;
-                
-
-            }
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                dataGridView1.Rows[i].Height = 5;
-            }
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                for (int j = 0; j < dataGridView1.Columns.Count; j++)
-                {
-                    dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.Black;
-                }
-            }*/
-            
-
-            //GenerateRandomNoise();
+           
         }
         
        
