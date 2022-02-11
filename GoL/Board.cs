@@ -291,6 +291,7 @@ namespace GoL
             System.Drawing.Imaging.BitmapData bmpData =
                 newFile.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
                 newFile.PixelFormat);
+                
             IntPtr ptr = bmpData.Scan0;
 
             int bytes = Math.Abs(bmpData.Stride) * newFile.Height ;
@@ -338,21 +339,27 @@ namespace GoL
             // Draw the modified image.
             Bitmap imgcopy = (Bitmap)newFile.Clone();
 
-            double zoom = 6;
-            if (zoom > 1)
+            //double zoom = 1;
+
+            bool enableNearestNeighbor = false;
+            if (width < 400)
+            {
+                enableNearestNeighbor = true;
+            }
+            if (enableNearestNeighbor)
             {
                 Size ogSize = imgcopy.Size;
-                Bitmap zoomed;
+                Bitmap nn;
                 //if (zoomed != null) zoomed.Dispose();
 
-                zoomed = new Bitmap((int)(ogSize.Width * zoom), (int)(ogSize.Height * zoom), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-                using (Graphics g = Graphics.FromImage(zoomed))
+                nn = new Bitmap((int)(ogSize.Width * 4), (int)(ogSize.Height * 4), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                using (Graphics g = Graphics.FromImage(nn))
                 {
                     g.InterpolationMode = InterpolationMode.NearestNeighbor;
                     g.PixelOffsetMode = PixelOffsetMode.Half;
-                    g.DrawImage(imgcopy, new Rectangle(Point.Empty, zoomed.Size));
+                    g.DrawImage(imgcopy, new Rectangle(Point.Empty, nn.Size));
                 }
-                this.image = zoomed;
+                this.image = nn;
             }
             else
             {

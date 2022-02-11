@@ -15,8 +15,8 @@ namespace GoL
 {
     public partial class Form1 : Form
     {
-        static int w = 378; //1920;//
-        static int h = 189; //1080;//
+        static int w = 390;//1920;//
+        static int h = 200;//1080;//
         double[] a = new double[w * h];
         double[] a2 = new double[w * h];
         Board b = new Board(w, h);
