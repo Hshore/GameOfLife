@@ -315,7 +315,7 @@ namespace GoL
                 if (c.alive)
                 {
                     rgbValues[num] = 0;
-                    rgbValues[num + 1] = 0;
+                    rgbValues[num + 1] = c.age < 255 ? (byte)c.age : (byte)255 ;
                     rgbValues[num + 2] = 255;
 
                     

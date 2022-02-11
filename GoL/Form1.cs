@@ -142,7 +142,7 @@ namespace GoL
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
 
-            Console.WriteLine("Pregres fired");
+            Console.WriteLine("Progress fired");
             lblHelloWorld.Text = ("Gen" + e.ProgressPercentage.ToString());
             pictureBox1.Image = b.image;
             var n = (int)(1 / fps);
